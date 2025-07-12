@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CCAD19 Stopwatch</h1>
+            <p>Stay focused and productive</p>
+        </header>
+
+        <main>
+            <div class="timer-container">
+                <div class="timer-display">
+                    <div class="time" id="time">25:00</div>
+                    <div class="timer-label" id="timer-label">Focus Time</div>
+                </div>
+
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="start-btn">Start</button>
+                    <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
+                    <button class="btn btn-secondary" id="reset-btn">Reset</button>
+                </div>
+
+                <div class="mobile-divider"></div>
+
+                <div class="timer-modes">
+                    <button class="mode-btn active" data-time="25" data-label="Focus">Focus</button>
+                    <button class="mode-btn" data-time="5" data-label="Short Break">Short Break</button>
+                    <button class="mode-btn" data-time="15" data-label="Long Break">Long Break</button>
+                </div>
+            </div>
+
+            <div class="session-info">
+                <div class="session-counter">
+                    <span>Session: </span>
+                    <span id="session-count">0</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="settings">
+                <button class="btn btn-outline" id="settings-btn">Settings</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="close-btn" id="close-settings">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="focus-time">Focus Time (minutes):</label>
+                    <input type="number" id="focus-time" value="25" min="1" max="60">
+                </div>
+                <div class="setting-group">
+                    <label for="short-break">Short Break (minutes):</label>
+                    <input type="number" id="short-break" value="5" min="1" max="30">
+                </div>
+                <div class="setting-group">
+                    <label for="long-break">Long Break (minutes):</label>
+                    <input type="number" id="long-break" value="15" min="1" max="60">
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="auto-start-breaks"> Auto-start breaks
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="auto-start-focus"> Auto-start focus sessions
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save-settings">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
